@@ -9,8 +9,14 @@
 
     <!-- Define your beans here -->
     
-    <bean id="myCoach"
-    	class="com.sahil.springdemo.FootballCoach">
+    <bean id="myFortune"
+    	class="com.sahil.springdemo.HappyFortuneService">
     </bean>
+    
+    <bean id="myCoach"
+    	class="com.sahil.springdemo.TrackCoach">
+    	<constructor-arg ref="myFortune"/>
+    </bean>
+    
     
 </beans>
