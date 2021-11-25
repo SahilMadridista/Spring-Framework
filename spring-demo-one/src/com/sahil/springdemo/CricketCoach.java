@@ -15,7 +15,7 @@ public class CricketCoach implements Coach {
 
 	@Override
 	public String getDailyWorkout() {
-		return "Do net practice.";
+		return "Do net practice for 1 hour.";
 	}
 
 	@Override
