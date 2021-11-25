@@ -17,7 +17,7 @@ public class BaseballCoach implements Coach {
 
 	@Override
 	public String getDailyWorkout() {
-		return "Do 100 push ups.";
+		return "Do 101 push ups.";
 	}
 
 	@Override

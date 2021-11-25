@@ -13,6 +13,12 @@
     	class="com.sahil.springdemo.HappyFortuneService">
     </bean>
     
+    <bean id="myCricketCoach"
+    	class="com.sahil.springdemo.CricketCoach">
+    	
+    	<property name="fortuneService" ref="myFortune"/>
+    </bean>
+    
     <bean id="myCoach"
     	class="com.sahil.springdemo.BaseballCoach">
     	<constructor-arg ref="myFortune"/>
