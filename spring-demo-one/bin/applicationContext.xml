@@ -8,8 +8,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     
-    <!-- myCoach1 is used for inversion of control -->
+    <!-- Load the sport.propeties file -->
   
+  	<context:property-placeholder location="classpath:sport.properties"/>
   
     <!-- Constructor Injection work  -->
     
@@ -32,11 +33,21 @@
     	
     	<property name="fortuneService" ref="myFortuneService"/>
     	
-    	<!--  Injecting literl values  -->
+    	<!--  Injecting literal values  -->
+    	
+    	<!--
     	
     	<property name="emailAddress" value="123@gmail.com"/>
     	
     	<property name="team" value="INDIA"/>
+    	
+    	-->
+    	
+    	<!-- Injecting literal values using the properties fine -->
+    	
+    	<property name="emailAddress" value="${foo.email}"/>
+    	
+    	<property name="team" value="${foo.team}"/>
     	  	
     </bean>
     
