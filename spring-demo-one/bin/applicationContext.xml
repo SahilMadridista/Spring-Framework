@@ -13,7 +13,7 @@
   
     <!-- Constructor Injection work  -->
     
-    <bean id="myFortune"
+    <bean id="myFortuneService"
     	class="com.sahil.springdemo.HappyFortuneService">
     </bean>
   
@@ -22,7 +22,22 @@
     	
     	<!-- Set up constructor injection -->
     	
-    	<constructor-arg ref="myFortune"/>
+    	<constructor-arg ref="myFortuneService"/>
+    </bean>
+    
+    <bean id="myCricketCoach"
+    	class="com.sahil.springdemo.CricketCoach">
+    	
+    	<!-- Set up setter injection -->
+    	
+    	<property name="fortuneService" ref="myFortuneService"/>
+    	
+    	<!--  Injecting literl values  -->
+    	
+    	<property name="emailAddress" value="123@gmail.com"/>
+    	
+    	<property name="team" value="INDIA"/>
+    	  	
     </bean>
     
 </beans>
