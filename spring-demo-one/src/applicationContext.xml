@@ -11,6 +11,15 @@
     <!-- Load the sport.propeties file -->
   
   	<context:property-placeholder location="classpath:sport.properties"/>
+  	
+  	<!-- Enable component scanning -->
+  	
+  	<context:component-scan base-package="com.sahil.springannotations"/>
+  	
+  	
+  	
+  	<!-- Everything below this is before annotations -->
+  	
   
     <!-- Constructor Injection work  -->
     
@@ -50,6 +59,8 @@
     	<property name="team" value="${foo.team}"/>
     	  	
     </bean>
+    
+   
     
 </beans>
  
