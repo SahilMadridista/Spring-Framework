@@ -7,17 +7,19 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements CoachInterface {
 	
 	// Define the private field
+	
+	@Autowired
 	private FortuneService2 fortuneService2;
 	
 	public TennisCoach() {
 		System.out.println("---Tennis coach- No arg constructor---.");
 	}
 	
-	// Constructor for the Dependency injection
-	@Autowired
-	public TennisCoach(FortuneService2 theFortuneService2) {
-		fortuneService2 = theFortuneService2;
-	}
+//	// Constructor for the Dependency injection
+//	@Autowired
+//	public TennisCoach(FortuneService2 theFortuneService2) {
+//		fortuneService2 = theFortuneService2;
+//	}
 
 	@Override
 	public String getDailyWorkout() {
@@ -30,15 +32,12 @@ public class TennisCoach implements CoachInterface {
 				+ "- The Constructor injection stuff";
 	}
 
-	public FortuneService2 getFortuneService2() {
-		return fortuneService2;
-	}
 
-	@Autowired
-	public void setFortuneService2(FortuneService2 fortuneService2) {
-		System.out.println("---Tennis coach- setter method---.");
-		this.fortuneService2 = fortuneService2;
-	}
+//	@Autowired
+//	public void setFortuneService2(FortuneService2 fortuneService2) {
+//		System.out.println("---Tennis coach- setter method---.");
+//		this.fortuneService2 = fortuneService2;
+//	}
 	
 	
 
