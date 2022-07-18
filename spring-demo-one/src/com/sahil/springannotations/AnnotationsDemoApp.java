@@ -13,7 +13,8 @@ public class AnnotationsDemoApp {
 				
 		// Retrieve bean from Spring container
 				
-		Coach theCoach = context.getBean("theSillyCoach",Coach.class);
+		CoachInterface theCoach = 
+				context.getBean("newCoach",CoachInterface.class);
 				
 		// Call methods on the bean
 				

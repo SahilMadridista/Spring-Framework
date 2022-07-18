@@ -1,6 +1,6 @@
 package com.sahil.springannotations;
 
-public interface Coach {
+public interface CoachInterface {
 
 	public String getDailyWorkout();
 	

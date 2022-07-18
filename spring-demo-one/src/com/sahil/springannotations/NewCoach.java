@@ -2,12 +2,12 @@ package com.sahil.springannotations;
 
 import org.springframework.stereotype.Component;
 
-@Component("theSillyCoach")
-public class TennisCoach implements CoachInterface {
+@Component
+public class NewCoach implements CoachInterface {
 
 	@Override
 	public String getDailyWorkout() {
-		return "Practice back hand for 30 minutes.";
+		return "Do something.";
 	}
 
 }
