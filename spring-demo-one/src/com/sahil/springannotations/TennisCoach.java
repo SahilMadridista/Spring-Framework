@@ -2,11 +2,9 @@ package com.sahil.springannotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
 public class TennisCoach implements CoachInterface {
 	
 	// Define the private field
@@ -42,7 +40,7 @@ public class TennisCoach implements CoachInterface {
 //		System.out.println("---Tennis coach- setter method---.");
 //		this.fortuneService2 = fortuneService2;
 //	}
-	
+ 	
 	
 
 }
