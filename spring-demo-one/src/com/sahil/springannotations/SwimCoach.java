@@ -1,11 +1,12 @@
 package com.sahil.springannotations;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SwimCoach implements CoachInterface {
 
 	private FortuneService2 fortuneService2;
-	
 	
 	@Value("${foo.email}")
 	String email;
