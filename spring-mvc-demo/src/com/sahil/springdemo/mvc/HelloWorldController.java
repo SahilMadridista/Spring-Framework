@@ -1,6 +1,9 @@
 package com.sahil.springdemo.mvc;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -20,5 +23,28 @@ public class HelloWorldController {
 	public String processForm() {
 		return "helloworld";
 	}
+	
+	
+	// Need a controller method to read form data and add data to model
+	
+	@RequestMapping("/processFormTwo")
+	public String letsShout(HttpServletRequest request, Model model) {
+		
+		// Read the request name from the HTML form
+		String name = request.getParameter("studentName");
+		
+		// Convert name to upper case
+		name = name.toUpperCase();
+		
+		// Create a message
+		String result = "Yo!! " + name;
+		
+		// Add message to model
+		model.addAttribute("msg",result);
+		
+		return "helloworld";
+		
+	}
+	
 	
 }
