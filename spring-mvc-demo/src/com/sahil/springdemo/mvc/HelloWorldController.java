@@ -27,29 +27,29 @@ public class HelloWorldController {
 	
 	// Need a controller method to read form data and add data to model
 	
-//	@RequestMapping("/processFormTwo")
-//	public String letsShout(HttpServletRequest request, Model model) {
-//		
-//		// Read the request name from the HTML form
-//		String name = request.getParameter("studentName");
-//		
-//		// Convert name to upper case
-//		name = name.toUpperCase();
-//		
-//		// Create a message
-//		String result = "Yo!! " + name;
-//		
-//		// Add message to model
-//		model.addAttribute("msg",result);
-//		
-//		return "helloworld";
-//		
-//	}
-	
 	@RequestMapping("/processFormTwo")
+	public String letsShout(HttpServletRequest request, Model model) {
+		
+		// Read the request name from the HTML form
+		String name = request.getParameter("studentName");
+		
+		// Convert name to upper case
+		name = name.toUpperCase();
+		
+		// Create a message
+		String result = "Yo!! " + name;
+		
+		// Add message to model
+		model.addAttribute("msg",result);
+		
+		return "helloworld";
+		
+	}
+	
+	@RequestMapping("/processFormThree")
 	public String letsGo(@RequestParam("studentName") String name, Model model) {
 		
-		String res = "Hello !! " + name.toUpperCase();
+		String res = "Hello friend !! " + name.toUpperCase();
 		
 		model.addAttribute("msg",res);
 		
