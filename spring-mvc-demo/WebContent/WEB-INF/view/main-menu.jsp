@@ -7,7 +7,11 @@
 
 <br>
 
-<a href = "showForm">Click here to open form</a>
+<a href = "hello/showForm">Click here to open form</a>
+
+<br><br>
+
+<a href = "silly/showForm">Open the Silly Page</a>
 
 </body>
  
