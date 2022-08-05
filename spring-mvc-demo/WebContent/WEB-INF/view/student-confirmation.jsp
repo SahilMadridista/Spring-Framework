@@ -16,6 +16,10 @@ ${student.firstName} ${student.lastName}
 
 <!-- The above statement will call student.getFirstName and student.getLastName respectively. -->
 
+<br> <br>
+
+Country: ${student.country}
+
 </body>
 
 
