@@ -20,6 +20,10 @@ ${student.firstName} ${student.lastName}
 
 Country: ${student.country}
 
+<br> <br>
+
+Favorite language is: ${student.favoriteLanguage}
+
 </body>
 
 
