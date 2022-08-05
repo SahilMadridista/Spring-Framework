@@ -57,6 +57,15 @@
 	
 	<input type = "submit" value="Submit" />
 	
+	<br><br>
+	
+	Operating system:
+	
+	Linux <form:checkbox path="operatingSystems" value ="Linux"/>
+	IOS <form:checkbox path="operatingSystems" value ="IOS"/>
+	Windows <form:checkbox path="operatingSystems" value ="Windows"/>
+	
+	
 	</form:form>
 
 
