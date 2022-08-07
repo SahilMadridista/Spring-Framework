@@ -64,7 +64,7 @@
 	Linux <form:checkbox path="operatingSystems" value ="Linux"/>
 	IOS <form:checkbox path="operatingSystems" value ="IOS"/>
 	Windows <form:checkbox path="operatingSystems" value ="Windows"/>
-	Android <form:checkbox path="operatingSystems" value ="Android"/>
+	Android <form:checkbox path="operatingSystems" value ="Android "/>
 	
 	
 	</form:form>
