@@ -16,7 +16,7 @@ public class Customer {
 		return firstName;
 	}
 	
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName) { 
 		this.firstName = firstName;
 	}
 	
@@ -25,7 +25,11 @@ public class Customer {
 	}
 	
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		
+		String newStr = lastName.trim();
+		this.lastName = newStr;
+		
+		
 	}
 	
 	
