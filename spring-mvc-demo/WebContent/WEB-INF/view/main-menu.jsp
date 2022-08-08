@@ -17,6 +17,10 @@
 
 <a href = "student/showForm">Open student registration form</a>
 
+<br><br>
+
+<a href = "customer/showForm">Open customer form</a>
+
 </body>
  
 </html>
