@@ -48,6 +48,8 @@ public class CustomerController {
 		System.out.println("Free passes are : " + theCustomer.getFreePasses());
 		System.out.println("Postal code is : " + theCustomer.getPostalCode());
 		
+		System.out.println("BR is : " + theBindingResult);
+		
 		if(theBindingResult.hasErrors()) {
 			return "customer-form";
 		}else {
