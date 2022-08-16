@@ -14,9 +14,10 @@ public class Customer {
 	@Size(min=1,message="is required")
 	private String lastName;
 	
+	@NotNull(message="is required")
 	@Min(value=0,message="Value must be equal or greater than zero")
 	@Max(value=10,message="Value must be less than or equal to 10")
-	private int freePasses;
+	private Integer freePasses;
 	
 	@Pattern(regexp="^[a-zA-Z0-9]{6}",message="Only 6 digits postal code is valid")
 	private String postalCode;
@@ -42,11 +43,11 @@ public class Customer {
 		
 	}
 
-	public int getFreePasses() {
+	public Integer getFreePasses() {
 		return freePasses;
 	}
 
-	public void setFreePasses(int freePasses) {
+	public void setFreePasses(Integer freePasses) {
 		this.freePasses = freePasses;
 	}
 
