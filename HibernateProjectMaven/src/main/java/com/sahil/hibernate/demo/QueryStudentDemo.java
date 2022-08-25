@@ -37,9 +37,7 @@ public class QueryStudentDemo {
 			// List<Student> theStudents = session.createQuery("from Student s where s.email LIKE '%@rm.com'").getResultList();
 			
 			// Display the students
-			for(Student tempStudent : theStudents) {
-				System.out.println(tempStudent);
-			}
+			displayStudents(theStudents);
 			
 			// Commit transaction
 			session.getTransaction().commit();
@@ -53,6 +51,12 @@ public class QueryStudentDemo {
 		}
 		
 
+	}
+
+	private static void displayStudents(List<Student> theStudents) {
+		for(Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
+		}
 	}
 
 }
