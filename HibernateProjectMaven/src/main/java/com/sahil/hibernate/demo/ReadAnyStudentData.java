@@ -31,7 +31,7 @@ public class ReadAnyStudentData {
 					
 					System.out.println("----Getting student with ID: 3");
 					
-					Student myStudent = session.get(Student.class, 3);
+					Student myStudent = session.get(Student.class, 4);
 					
 					System.out.println("Object read complete: " + myStudent);
 					
