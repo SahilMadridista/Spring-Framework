@@ -24,7 +24,7 @@ public class UpdateStudentDemo {
 			// Use the session to update the java object
 			System.out.println("----Updating student object----");
 			
-			int id = 4;
+			int id = 1;
 			
 			System.out.println("Entered student's ID is : "+ id);
 			
@@ -41,7 +41,7 @@ public class UpdateStudentDemo {
 			
 			System.out.println("Updating student with ID " + id);
 			
-			stu.setEmail("cristianoronaldo7@rm.com");
+			stu.setEmail("sr4@rm.com");
 			
 			// Commit transaction
 			session.getTransaction().commit();
