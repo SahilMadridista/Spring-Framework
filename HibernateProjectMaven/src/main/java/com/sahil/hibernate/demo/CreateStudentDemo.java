@@ -18,7 +18,6 @@ public class CreateStudentDemo {
 		// Create session
 		Session session = factory.getCurrentSession();
 		
-		
 		try {
 			
 			// Use the session to save the java object
