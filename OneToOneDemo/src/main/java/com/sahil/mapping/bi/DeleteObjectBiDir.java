@@ -7,7 +7,7 @@ import com.sahil.hibernate.entity.Student;
 import com.sahil.mapping.entity.Instructor;
 import com.sahil.mapping.entity.InstructorDetail;
 
-public class GetObjectBiDir {
+public class DeleteObjectBiDir {
 
 	public static void main(String[] args) {
 
@@ -29,14 +29,14 @@ public class GetObjectBiDir {
 			
 			// Get the instructor detail object
 			
-			int id = 3;
+			int id = 5;
 			
 			InstructorDetail instructorDetail = session
 					.get(InstructorDetail.class, id);
+
+			System.out.println("Deleting instructor...");
 			
-			System.out.println("Instructor details are : " + instructorDetail);
-			
-			System.out.println("Linked instructor is : " + instructorDetail.getInstructor());
+			session.delete(instructorDetail);
 			
 			// Commit transaction
 			session.getTransaction().commit();
