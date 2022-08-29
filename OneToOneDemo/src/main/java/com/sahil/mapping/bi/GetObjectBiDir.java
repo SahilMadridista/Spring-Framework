@@ -1,4 +1,4 @@
-package com.sahil.mapping.demo;
+package com.sahil.mapping.bi;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,7 +7,7 @@ import com.sahil.hibernate.entity.Student;
 import com.sahil.mapping.entity.Instructor;
 import com.sahil.mapping.entity.InstructorDetail;
 
-public class DeleteDemo {
+public class GetObjectBiDir {
 
 	public static void main(String[] args) {
 
@@ -27,29 +27,24 @@ public class DeleteDemo {
 			// Start a transaction
 			session.beginTransaction();
 			
-			// Get object using primary key 
-			int id = 2 ;
+			// Get the instructor detail object
 			
-			Instructor instructor = session.get(Instructor.class, id);
+			int id = 5;
 			
-			System.out.println("Instructor found : " + instructor);
+			InstructorDetail instructorDetail = session
+					.get(InstructorDetail.class, id);
 			
-			if(instructor != null) {
-				
-				System.out.println("Deleting the instructor...");
-				
-				// This will also delete the details
-				
-				session.delete(instructor);
-				
+			if(instructorDetail == null) {
+				System.out.println("Details not found.");
 			}else {
-				
-				System.out.println("Instructor not found in the database");
-			
+				System.out.println("Instructor details are : " + instructorDetail);
+				System.out.println("Linked instructor is : " + instructorDetail.getInstructor());
 			}
 			
 			// Commit transaction
 			session.getTransaction().commit();
+			
+			System.out.println("Operation done.");
 			
 		}finally {
 			
