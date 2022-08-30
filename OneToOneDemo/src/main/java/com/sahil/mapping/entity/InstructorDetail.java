@@ -25,6 +25,8 @@ public class InstructorDetail {
 	private String hobby;
 	
 	// Code for bi-directional mapping
+	// If we want to delete the details but not the instructor, we have to change the cascadeType
+	// We have to select every cascade type except ALL and REMOVE
 
 	@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
 	private Instructor instructor;
