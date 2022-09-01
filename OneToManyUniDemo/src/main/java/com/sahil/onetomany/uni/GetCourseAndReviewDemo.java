@@ -1,4 +1,4 @@
-package com.sahil.onetomany.bi;
+package com.sahil.onetomany.uni;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,7 +9,7 @@ import com.sahil.mapping.entity.Instructor;
 import com.sahil.mapping.entity.InstructorDetail;
 import com.sahil.mapping.entity.Review;
 
-public class CreateCourseDemo {
+public class GetCourseAndReviewDemo {
 
 	public static void main(String[] args) {
 
@@ -31,34 +31,15 @@ public class CreateCourseDemo {
 			// Start a transaction
 			session.beginTransaction();
 			
-			// Get the instructor from DB
+			// Get the course
+			int id = 10;
+			Course course = session.get(Course.class, id);
 			
-			int id = 1;
+			// Print the course
+			System.out.println("Course details: " + course);
 			
-			Instructor instructor = session.get(Instructor.class, id);
-			
-			// Create some courses
-			
-			// Course course1 = new Course("Passing masterclass"); 
-			
-			// Course course2 = new Course("Let's learn dribbling");
-			
-			// So now we have already created a course and reviews using the OneToManyUniDemo but it is not linked with the instructor. So here we will fetch the course and add it to the instructor.
-			
-			int courseId = 11;
-			
-			Course course = session.get(Course.class, courseId);
-			
-			// Add courses to instructor
-			
-			instructor.add(course);
-			
-			// instructor.add(course2);
-			
-			// Save the courses
-			
-			session.save(course);
-			// session.save(course2);
+			// Print reviews
+			System.out.println("Reviews are: " + course.getReviews());
 			
 			// Commit transaction
 			session.getTransaction().commit();
