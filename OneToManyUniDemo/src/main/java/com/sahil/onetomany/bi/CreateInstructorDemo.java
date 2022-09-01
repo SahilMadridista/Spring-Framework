@@ -7,6 +7,7 @@ import com.sahil.hibernate.entity.Student;
 import com.sahil.mapping.entity.Course;
 import com.sahil.mapping.entity.Instructor;
 import com.sahil.mapping.entity.InstructorDetail;
+import com.sahil.mapping.entity.Review;
 
 public class CreateInstructorDemo {
 
@@ -18,6 +19,7 @@ public class CreateInstructorDemo {
 				.addAnnotatedClass(Instructor.class)
 				.addAnnotatedClass(InstructorDetail.class)
 				.addAnnotatedClass(Course.class)
+				.addAnnotatedClass(Review.class)
 				.buildSessionFactory();
 		
 		// Create session
@@ -28,11 +30,11 @@ public class CreateInstructorDemo {
 			
 			// Object creation
 			
-			Instructor instructor = new Instructor("Lionel",
-					"Messi", "lm10@gmail.com"); 
+			Instructor instructor = new Instructor("Cristiano",
+					"Ronaldo", "cr7@gmail.com"); 
 			
 			InstructorDetail instructorDetail = 
-					new InstructorDetail("lm10Academy", "playmaker");
+					new InstructorDetail("cr7ShootingAcademy", "scoring goals");
 			
 			// Associate the objects
 			
