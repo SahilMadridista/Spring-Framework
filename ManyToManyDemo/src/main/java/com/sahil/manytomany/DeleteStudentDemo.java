@@ -9,7 +9,7 @@ import com.sahil.mapping.entity.Instructor;
 import com.sahil.mapping.entity.InstructorDetail;
 import com.sahil.mapping.entity.Review;
 
-public class AddCourseForStudent {
+public class DeleteStudentDemo {
 
 	public static void main(String[] args) {
 
@@ -32,13 +32,16 @@ public class AddCourseForStudent {
 			// Start a transaction
 			session.beginTransaction();
 			
-			// Get student from the DB
-			Student student = session.get(Student.class, 3);
+			// Get the course from DB
+			int id = 3;
+
+			Student student = session.get(Student.class, id);
 			
-			System.out.println("Student details: " + student);
+			// Delete the course
 			
-			System.out.println(student.getCourses());
+			System.out.println("Deleting the student: " + student);
 			
+			session.delete(student);
 			
 			// Commit transaction
 			session.getTransaction().commit();
