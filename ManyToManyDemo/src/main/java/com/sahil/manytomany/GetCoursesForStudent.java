@@ -9,7 +9,7 @@ import com.sahil.mapping.entity.Instructor;
 import com.sahil.mapping.entity.InstructorDetail;
 import com.sahil.mapping.entity.Review;
 
-public class AddCourseForStudent {
+public class GetCoursesForStudent {
 
 	public static void main(String[] args) {
 
@@ -35,10 +35,24 @@ public class AddCourseForStudent {
 			// Get student from the DB
 			Student student = session.get(Student.class, 3);
 			
-			System.out.println("Student details: " + student);
+			System.out.println("Student loaded " + student + student.getCourses());
 			
-			System.out.println(student.getCourses());
+			// Create more courses
 			
+			Course c1 = new Course("Real Madrid Academy");
+			Course c2 = new Course("Learn dribbling");
+			
+			// Add student to course
+			
+			c1.addStudent(student);
+			c2.addStudent(student);
+			
+			// Save the courses
+			System.out.println("Saving the course...");
+			session.save(c1);
+			session.save(c2);
+			
+			System.out.println("Course saved...");
 			
 			// Commit transaction
 			session.getTransaction().commit();
