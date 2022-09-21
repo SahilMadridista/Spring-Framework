@@ -35,5 +35,27 @@ class name that is shown below-
   starting with 'add'.
   
   
+  ------------------- Parameters pattern --------------------
+  
+  () - matches a method with no arguments
+  (*) - matches a method with one argument of any type
+  (..) - matches a method with 0 or more arguments of any type
+  
+  If there is a class parameter, then we have to enter the fully classified
+  class name in the method parameter.
+  
+  @Before("execution(* add*(com.sahil.aopdemo.Account))") 
+  
+  Match on a given package-
+  @Before("execution(* com.sahil.aopdemo.dao.*.*(..))")
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
