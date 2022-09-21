@@ -1,0 +1,85 @@
+@Before advice syntax-
+
+@Before(execution(public void methodName()))
+@Before(execution(modifier return-type methodName()))
+
+Modifier is optional.
+If the return type doesn't match with the method's return type, it'll not match with that
+method.
+
+This will be applicable for all the beans that have been called 
+by the main application and has the methodName() method.
+
+E.g. 
+AccountDAO and MembershipDAO, both class have the addAccount method So,
+If we do 
+
+@Before(execution(public void addAccount())), 
+
+This will be applicable for both the class methods but If we want to
+make the matching for any particular class we have to use full qualified
+class name that is shown below-
+
+ @Before("execution(public void com.sahil.aopdemo.dao.AccountDAO.addAccount())")
+ 
+ If we use,
+ 
+  @Before("execution(public void add*())")
+  
+  This will run for all the methods that starts with 'add' and we can use * in
+  fully classified class name too.
+  
+  @Before("execution(public void com.sahil.aopdemo.dao.AccountDAO.add*())")
+  
+  @Before("execution(* add*()) - Matches with any return type with the methods 
+  starting with 'add'.
+  
+  
+  ------------------- Parameters pattern --------------------
+  
+  () - matches a method with no arguments
+  (*) - matches a method with one argument of any type
+  (..) - matches a method with 0 or more arguments of any type
+  
+  If there is a class parameter, then we have to enter the fully classified
+  class name in the method parameter.
+  
+  @Before("execution(* add*(com.sahil.aopdemo.Account))") 
+  
+  Match on a given package-
+  @Before("execution(* com.sahil.aopdemo.dao.*.*(..))")
+  
+  ----21 September----
+  
+  If we want to apply same point cut expression to multiple methods then what we can do ?
+  we can simply cop paste the point cut expression. This thing will work but it is
+  not ideal.
+  
+  Ideal way of doing is- 
+  
+    @Pointcut("execution(* com.sahil.aopdemo.dao.*.*(..))")
+	private void forDAOPackage() {}
+	
+	@Before("forDAOPackage()")
+	public void beforeAddAccountAdvice() {
+		System.out.println("---Do something---");
+	}
+  
+  
+  Combining point cut expressions-
+  
+  Using logical operators-
+  
+  AND (&&)
+  OR (||)
+  NOT (!)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
