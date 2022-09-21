@@ -38,7 +38,7 @@ public class MyDemoLoggingAspect {
 	}
 	
 	@Before("forDAOPackageNoGetterSetter()")
-	public void performAPIAnalytics() {
+	public void performAPIAnalyticsAdvice() {
 		System.out.println("------> Performing API analytics");
 	}
 	

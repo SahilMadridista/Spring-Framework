@@ -75,8 +75,13 @@ class name that is shown below-
   NOT (!)
   
   
+  Advice orders-
   
-  
+  By default the order of performing the advice is undefined
+  and to control the order-
+  1- Refactor advices in separate aspects.
+  2- Control order on Aspects using the @Order annotation
+  3- Guarantees order of when Aspects are applied.
   
   
   
