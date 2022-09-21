@@ -49,6 +49,22 @@ class name that is shown below-
   Match on a given package-
   @Before("execution(* com.sahil.aopdemo.dao.*.*(..))")
   
+  ----21 September----
+  
+  If we want to apply same point cut expression to multiple methods then what we can do ?
+  we can simply cop paste the point cut expression. This thing will work but it is
+  not ideal.
+  
+  Ideal way of doing is- 
+  
+    @Pointcut("execution(* com.sahil.aopdemo.dao.*.*(..))")
+	private void forDAOPackage() {}
+	
+	@Before("forDAOPackage()")
+	public void beforeAddAccountAdvice() {
+		System.out.println("---Do something---");
+	}
+  
   
   
   
