@@ -9,6 +9,13 @@ public class AopExpressions {
 	@Pointcut("execution(* com.sahil.aopdemo.dao.*.*(..))")
 	public void forDAOPackage() {}
 	
+	// The above point cur expression means-
+	// First * - Any return type
+	// com.sahil.aopdemo.dao - Package name
+	// Second * - Any class name
+	// Third * - Any method name
+	// (..) - 0 or more arguments of any type
+	
 	// Create point cut for getter
 	@Pointcut("execution(* com.sahil.aopdemo.dao.*.get*(..))")
 	public void getter() {}
