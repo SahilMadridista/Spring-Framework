@@ -1,0 +1,154 @@
+package com.sahil.aopdemo.aspect;
+
+import java.util.List;
+import java.util.logging.Logger;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+import com.sahil.aopdemo.Account;
+
+@Aspect
+@Component
+@Order(2)
+public class MyDemoLoggingAspect {
+	
+	private Logger myLogger = 
+			Logger.getLogger(getClass().getName());
+	
+	
+	@Around("execution(* com.sahil.aopdemo.service.*.getFortune(..))")
+	public Object aroundGetFortune(
+			ProceedingJoinPoint theProceedingJoinPoint) throws Throwable {
+		
+		// Print the method we are advising on
+		String method = theProceedingJoinPoint.getSignature().toShortString();
+		myLogger.info("\n -------> Executing @Aroundy on : " + method);
+		
+		// Begin time stamp
+		long begin = System.currentTimeMillis();
+		
+		// Execute the method
+		Object result = null;
+		
+		try {
+			result = theProceedingJoinPoint.proceed();
+		} catch (Exception e) {
+			// log the exception
+			myLogger.warning(e.getMessage());
+			
+			//give user a custom message
+			result = "Major accident! But your helicopter is on the way to rescue";
+		
+		}
+		
+		// End time stamp
+		long end = System.currentTimeMillis();
+		
+		// Compute duration
+		long duration = end - begin;
+		myLogger.info("Time duration is: " + duration/1000.0 + " seconds" );
+		
+		return result;
+	}
+	
+	
+	@After("execution(* com.sahil.aopdemo.dao.AccountDAO.findAccounts(..))")
+	public void afterFinallyFindAccountAdvice(JoinPoint theJoinPoint) {
+
+		// Print out the method name
+
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n -------> Executing @AfterFinally on : " + method);
+
+	}
+
+	@AfterThrowing(pointcut = "execution(* com.sahil.aopdemo.dao.AccountDAO.findAccounts(..))", throwing = "myExc")
+	public void afterThrowingFindAccountAdvice(JoinPoint theJoinPoint, Throwable myExc) {
+
+		// Print out the method name
+
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n -------> Executing @AfterThrowing on : " + method);
+
+		// log the exception
+
+		System.out.println("The exception is: " + myExc);
+
+	}
+
+	// Add @AfterReturning advice
+
+	@AfterReturning(pointcut = "execution(* com.sahil.aopdemo.dao.AccountDAO.findAccounts(..))", returning = "result")
+	public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> result) {
+
+		/* returning value and method parameter must be same name */
+
+		// Print out which method we are advising on
+		String method = theJoinPoint.getSignature().toShortString();
+		System.out.println("\n -------> Executing @AfterReturning on : " + method);
+
+		// Print out the results of the method call
+		System.out.println("\n -------> Result is: " + result);
+
+		// If we post process the data then the calling program will get the modified
+		// data
+
+		// Let's post-process the data
+
+		convertAccountNameToUpperCase(result);
+
+		System.out.println("\n -------> Result is: " + result);
+
+	}
+
+	private void convertAccountNameToUpperCase(List<Account> result) {
+
+		for (Account temp : result) {
+
+			String upperName = temp.getName().toUpperCase();
+			temp.setName(upperName);
+		}
+
+	}
+
+	@Before("com.sahil.aopdemo.aspect.AopExpressions.forDAOPackageNoGetterSetter()")
+	public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
+		System.out.println("------> Executing @Before advice on addAccount()");
+
+		System.out.println("----Method Signature----");
+
+		// Display the method signature
+		MethodSignature methSig = (MethodSignature) theJoinPoint.getSignature();
+
+		System.out.println("Method: " + methSig);
+
+		// Display method arguments
+
+		// Get arguments
+		Object[] args = theJoinPoint.getArgs();
+
+		// Loop through arguments
+		for (Object temp : args) {
+			System.out.println("Object: " + temp);
+
+			if (temp instanceof Account) {
+				// Downcast and print Account specific stuff
+				Account theAccount = (Account) temp;
+				System.out.println("Account name: " + theAccount.getName());
+				System.out.println("Account name: " + theAccount.getLevel());
+			}
+
+		}
+
+	}
+
+}
