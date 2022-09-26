@@ -39,14 +39,24 @@ public class MyDemoLoggingAspect {
 		// Execute the method
 		Object result = null;
 		
+//		try {
+//			result = theProceedingJoinPoint.proceed();
+//		} catch (Exception e) {
+//			// log the exception
+//			myLogger.warning(e.getMessage());
+//			
+//			//give user a custom message
+//			result = "Major accident! But your helicopter is on the way to rescue";
+//		
+//		}
+		
 		try {
 			result = theProceedingJoinPoint.proceed();
 		} catch (Exception e) {
 			// log the exception
 			myLogger.warning(e.getMessage());
 			
-			//give user a custom message
-			result = "Major accident! But your helicopter is on the way to rescue";
+			throw e;
 		
 		}
 		
