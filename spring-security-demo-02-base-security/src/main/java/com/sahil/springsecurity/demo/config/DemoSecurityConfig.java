@@ -24,11 +24,8 @@ public class DemoSecurityConfig
 			.withUser(users.username("luka").password("1234").roles("CM"))
 			.withUser(users.username("eder").password("1234").roles("CB"));
 		
-		
-		
-		
 	}
-	
+
 	
 
 }
