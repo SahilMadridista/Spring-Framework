@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri = "http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri = "http://www.springframework.org/security/tags" %>
 
 <html>
 
@@ -11,6 +12,17 @@
 <hr>
 
 <p>Welcome to the best club in the world.</p>
+
+<hr>
+
+<!-- Display username and role -->
+
+<p>
+	User: <security:authentication property="principal.username"/>
+	<br><br>
+	Role: <security:authentication property="principal.authorities"/>
+</p>
+
 
 <hr>
 
