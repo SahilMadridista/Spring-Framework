@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri = "http://www.springframework.org/tags/form" %>
+
 <html>
 
 <head> Real Madrid home page </head>
@@ -8,8 +10,18 @@
 
 <hr>
 
-Welcome to the best club in the world.
+<p>Welcome to the best club in the world.</p>
 
+<hr>
+
+<!-- Add a logout button -->
+
+<form:form action="${pageContext.request.contextPath}/logout" 
+	method="POST">
+	
+	<input type = "submit" value="Logout"/>
+
+</form:form>
 
 </body>
 

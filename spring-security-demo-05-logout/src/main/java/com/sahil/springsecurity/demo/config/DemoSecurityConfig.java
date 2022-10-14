@@ -37,6 +37,9 @@ public class DemoSecurityConfig
 		.formLogin()
 		.loginPage("/showMyLoginPage")
 		.loginProcessingUrl("/authenticateTheUser")
+		.permitAll()
+		.and()
+		.logout()
 		.permitAll();
 		
 		
