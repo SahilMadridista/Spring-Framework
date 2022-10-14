@@ -21,9 +21,9 @@ public class DemoSecurityConfig
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-			.withUser(users.username("karim").password("1234").roles("ST"))
-			.withUser(users.username("luka").password("1234").roles("CM"))
-			.withUser(users.username("eder").password("1234").roles("CB"));
+			.withUser(users.username("karim").password("1234").roles("STRIKER"))
+			.withUser(users.username("luka").password("1234").roles("MIDFIELDER"))
+			.withUser(users.username("eder").password("1234").roles("DEFENDER"));
 		
 	}
 
