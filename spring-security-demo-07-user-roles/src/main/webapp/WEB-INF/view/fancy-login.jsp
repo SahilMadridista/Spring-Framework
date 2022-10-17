@@ -88,11 +88,13 @@
 							</div>
 						</div>
 						
-						<!-- Manually adding tokens -->
+						<!-- Manually adding Cross Site Request Forgery tokens -->
 						
 						<input type="hidden"
 							name="${_csrf.parameterName}"
 							value="${_csrf.token}"/>
+
+						<!-- We can use html form tag instead of spring mvc form tag-->
 
 					</form>
 
