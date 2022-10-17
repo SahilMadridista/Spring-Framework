@@ -21,10 +21,9 @@ public class DemoSecurityConfig
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-			.withUser(users.username("karim").password("1234").roles("STRIKER","MIDFIELDER"))
-			.withUser(users.username("luka").password("1234").roles("MIDFIELDER"))
-			.withUser(users.username("eder").password("1234").roles("DEFENDER"))
-			.withUser(users.username("fede").password("1234").roles("STRIKER","MIDFIELDER","DEFENDER"));
+			.withUser(users.username("karim").password("1234").roles("EMPLOYEE"))
+			.withUser(users.username("luka").password("1234").roles("EMPLOYEE","MANAGER"))
+			.withUser(users.username("fede").password("1234").roles("EMPLOYEE","ADMIN"));
 		
 	}
 
@@ -32,8 +31,9 @@ public class DemoSecurityConfig
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-		.anyRequest()
-		.authenticated()
+		.antMatchers("/").hasRole("EMPLOYEE")
+		.antMatchers("/leaders/**").hasRole("MANAGER")
+		.antMatchers("/systems/**").hasRole("ADMIN")
 		.and()
 		.formLogin()
 		.loginPage("/showMyLoginPage")
