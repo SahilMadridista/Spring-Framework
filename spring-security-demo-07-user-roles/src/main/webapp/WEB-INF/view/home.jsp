@@ -25,11 +25,18 @@
 
 <hr>
 
-<!-- Adding link to point to other pages for admin/manager -->
+<!-- Adding link to point to /leaders .... For MANAGER role -->
 
 <p>
 	<a href = "${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
 	(Only for Managers)
+<p>
+
+<!-- Adding link to point to /systems .... For ADMIN role -->
+
+<p>
+	<a href = "${pageContext.request.contextPath}/systems">Systems information</a>
+	(Only for Admins)
 <p>
 
 

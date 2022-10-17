@@ -16,6 +16,11 @@ public class DemoController {
 		return "leaders";
 	}
 	
+	@GetMapping("/systems")
+	public String showAdmins() {
+		return "systems";
+	}
+	
 	
 }
   
