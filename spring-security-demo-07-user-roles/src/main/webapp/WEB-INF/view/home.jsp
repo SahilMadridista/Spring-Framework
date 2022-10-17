@@ -23,6 +23,15 @@
 	Role: <security:authentication property="principal.authorities"/>
 </p>
 
+<hr>
+
+<!-- Adding link to point to other pages for admin/manager -->
+
+<p>
+	<a href = "${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
+	(Only for Managers)
+<p>
+
 
 <hr>
 
