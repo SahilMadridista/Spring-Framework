@@ -58,7 +58,10 @@ public class DemoSecurityConfig
 		.permitAll()
 		.and()
 		.logout()
-		.permitAll();
+		.permitAll()
+		.and()
+		.exceptionHandling()
+		.accessDeniedPage("/access-denied");
 		
 		
 	}
