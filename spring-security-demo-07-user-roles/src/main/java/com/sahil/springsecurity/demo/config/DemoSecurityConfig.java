@@ -30,6 +30,23 @@ public class DemoSecurityConfig
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
+		/* This was the previous code when there was no restriction to the user. But now we have user restrictions
+		 
+		 http.authorizeRequests()
+		.anyRequest()
+		.authenticated()
+		.and()
+		.formLogin()
+		.loginPage("/showMyLoginPage")
+		.loginProcessingUrl("/authenticateTheUser")
+		.permitAll()
+		.and()
+		.logout()
+		.permitAll();
+		  
+		*/
+		
+		
 		http.authorizeRequests()
 		.antMatchers("/").hasRole("EMPLOYEE")
 		.antMatchers("/leaders/**").hasRole("MANAGER")
