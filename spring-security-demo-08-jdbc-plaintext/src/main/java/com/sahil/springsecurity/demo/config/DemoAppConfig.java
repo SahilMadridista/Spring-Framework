@@ -34,7 +34,7 @@ public class DemoAppConfig {
 	
 	
 	// Define a bean for ViewResolver
-	jdbc-plaintext
+	
 	@Bean
 	public ViewResolver viewResolver() {
 		
