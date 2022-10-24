@@ -1,4 +1,4 @@
-package com.sahil.springdemo.pojotojson;
+package com.sahil.springdemo.entity;
 
 public class Student {
 
