@@ -1,0 +1,11 @@
+In this file, u'll see the development process of this demo.
+
+1) Develop SQL script to set up database table.
+
+2) Add database support to Maven POM file.
+
+3) Create JDBC properties file. ( persistence-mysql.properties )
+
+4) Define datasource in spring configuration.
+
+5) Update spring security configuration to use JDBC. (DemoSecurityConfig)
