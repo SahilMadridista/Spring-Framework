@@ -10,7 +10,7 @@ public class CustomerRestExceptionHandler {
 
 	// Add an exception handler for Customer not found exception
 	@ExceptionHandler
-	public ResponseEntity<CustomerErrorResponse> handleExc(CustomerException exc){
+	public ResponseEntity<CustomerErrorResponse> handleExc(CustomerNotFoundException exc){
 		
 		// Create CustomerErrorResponse
 		
