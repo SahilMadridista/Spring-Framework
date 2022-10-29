@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+ 
 @RestController
 public class FunRestController {
 
@@ -20,6 +20,13 @@ public class FunRestController {
 		String msg = "The date and time on server is: " + dtf.format(now);
 
 		return "Hello World! " + msg;
+	}
+	
+	// Adding a new demo endpoint
+	
+	@GetMapping("/workout")
+	public String getDailyWorkout() {
+		return "Run 2 kilometers";
 	}
 
 }
