@@ -36,6 +36,14 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
+		<!-- Actuator dependency: Used for getting monitoring and manage the app -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
