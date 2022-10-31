@@ -24,7 +24,6 @@ public class EmployeeDAOHibernameImpl implements EmployeeDAO {
 		entityManager=theEntityManager;
 	}
 	
-	@Transactional
 	public List<Employee> findAll() {
 		
 		// Get the current hibernate session
@@ -41,4 +40,54 @@ public class EmployeeDAOHibernameImpl implements EmployeeDAO {
 		return emp;
 	}
 
+	public Employee findById(int theId) {
+		
+		// Get the current hibernate session
+		Session curr = entityManager.unwrap(Session.class);
+		
+		// Get the employee
+		Employee theEmployee = curr.get(Employee.class, theId);
+		
+		// return
+		return theEmployee;
+	}
+
+	public void save(Employee theEmployee) {
+		
+		Session curr = entityManager.unwrap(Session.class);
+		curr.saveOrUpdate(theEmployee);
+		
+	}
+
+	public void deleteById(int theId) {
+		
+		Session curr = entityManager.unwrap(Session.class);
+		
+		Query tq = curr.createQuery("delete from Employee where id=:employeeId");
+		
+		tq.setParameter("employeeId", theId);
+		
+		tq.executeUpdate();
+		
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
