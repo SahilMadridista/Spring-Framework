@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sahil.springboot.cruddemo.dao.EmployeeDAO;
 import com.sahil.springboot.cruddemo.entity.Employee;
+import com.sahil.springboot.cruddemo.service.EmployeeService;
 
 @RestController
 @RequestMapping("/api")
@@ -15,10 +16,10 @@ public class EmployeeRestController {
 
 	// Inject employee DAO
 	
-	private EmployeeDAO employeeDAO;
+	private EmployeeService employeeService;
 	
-	public EmployeeRestController(EmployeeDAO theEmployeeDAO) {
-		employeeDAO = theEmployeeDAO;
+	public EmployeeRestController(EmployeeService theEmployeeService) {
+		employeeService = theEmployeeService;
 	}
 	
 	
@@ -26,7 +27,7 @@ public class EmployeeRestController {
 	
 	@GetMapping("/employees")
 	public List<Employee> findAll(){
-		return employeeDAO.findAll();
+		return employeeService.findAll();
 	}
 	
 	
