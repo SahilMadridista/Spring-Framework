@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.sahil.springboot.cruddemo.entity.Employee;
 
-@RepositoryRestResource(path="members")
+// @RepositoryRestResource(path="members")
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	// That's it. No need to write any code here
